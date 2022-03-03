@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Services{% endblock title %}
+
+{% block body %}
+
+  <h2 class="text-center pb-2"><u>Categories</u></h2>
+  <div class="row py-1">
+    <div class="col-lg-3 mx-auto">
+      {% for category in categories %}
+        <a href="/?category={{category.id}}" class="list-group-item list-group-item-primary">{{category.name}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row mx-auto">
+      {% for product in products %}
+      <div class="card mx-auto mb-4" style="width: 15rem;">
+        <img src="{{product.image.url}}" class="card-img-top pt-2" alt="...">
+        <div class="card-body">
+          <strong><p class="card-title">Role : {{product.role}}</p>   
+            <p class="card-text">Name : {{product.name}}</p>
+            <p class="card-text">Gender : {{product.gender}}</p>
+            <p class="card-text">Email : {{product.email}}</p>
+            <p class="card-text">Phone : {{product.phone}}</p>
+            <p class="card-text">City : {{product.city}}</p>
+            <p class="card-text">Description : {{product.description}}</p>
+          </strong>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+{% endblock body %}

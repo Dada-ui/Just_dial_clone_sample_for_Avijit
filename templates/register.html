@@ -1,0 +1,126 @@
+{% extends 'cover.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block body %}
+
+    <div class="card-img-overlay py-2">
+
+      <style>
+        div.relative {
+          position: relative;
+          left: 235px;
+          border-width: thick;
+        }
+        u {
+          color: white;
+        }
+
+      </style>
+
+      <div class="relative col-sm-7 mx-5 my-5 pt-1">
+
+        <div class="container my-1 pt-4">
+          <h2 class="text-center"><b><u>REGISTER</u></b></h2>
+        </div>
+
+        {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show col-sm-4 text-center" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+        {% endfor %}
+        {% endif %}
+
+        <form method="POST" action="/register" class="post-form">
+          {% csrf_token %}
+
+          <div class="col-sm g-2 pt-3 form-control align-items-center">
+
+            <div class="row g-2">
+
+              <div class="col-sm g-3">
+                <div class="form-floating mb-1">
+                  <input type="username" class="form-control" id="username" placeholder="User Name"  name='username' required>
+                  <label for="username">Username</label>
+                </div>
+              </div>
+
+              <div class="col-sm g-3">
+                <div class="form-floating mb-1">
+                  <input type="name" class="form-control" id="first_name" placeholder="First Name" name='first_name' required>
+                  <label for="first_name">First Name</label>
+                </div>
+              </div>
+
+              <div class="col-sm g-3">
+                <div class="form-floating mb-1">
+                  <input type="name" class="form-control" id="last_name" placeholder="Last Name" name='last_name' required>
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+
+            </div>
+            
+            <div class="row g-2">
+
+              <div class="col-sm g-3">
+                <div class="form-floating mb-1">
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email Address" name='email' required>
+                  <label for="email">Email address</label>
+                </div>
+              </div>
+
+              <div class="col-sm g-3">
+                <div class="form-floating mb-1">
+                  <input type="email" class="form-control" id="reemail" aria-describedby="emailHelp" placeholder="Confirm - Email address" name='reemail' required>
+                  <label for="reemail">Confirm - Email address</label>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="row g-2">
+
+              <div class="col-sm g-3">
+                <div class="form-floating mb-1">
+                  <input type="password" class="form-control" id="password" placeholder="Password" name='password' required>
+                  <label for="password">Password</label>
+                </div>
+              </div>
+
+              <div class="col-sm g-3">
+                <div class="form-floating mb-1">
+                  <input type="password" class="form-control" id="repassword" placeholder="Confirm - Password" name='repassword' required>
+                  <label for="repassword">Confirm - Password</label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row g-4">
+              <div class="text-center">
+                <div class="form-floating mt-3 mb-1" id="register">
+                  <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mt-2 mb-2"><b>Already have an account..?</b>
+                <a class="btn btn-success mx-3" id="login" aria-current="page" href="/login">LOGIN</a>
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+{% endblock body %}

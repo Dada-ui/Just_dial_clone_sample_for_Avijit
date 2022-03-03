@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+
+    <div class="container mt-3">
+        <h3 class="text-center">
+            <b>You can search anything over here...!</b>
+        </h3>
+    </div>
+
+    <style>
+        div.relative {
+        position: relative;
+        left: 342px;
+        }
+    </style>
+
+    <div class="relative col-sm-5 mx-5 mb-2">
+
+        <div class="col-lg g-2 pt-3 align-items-center">
+                        
+            <div class="container-fluid">
+                <form method='get' action="/search" class="d-flex">
+                    <input class="form-control me-2" id="query" type="search" placeholder="what are you looking for...!?" aria-label="Search" name="query">
+                    <button class="btn btn-outline-success" type="submit"><img src="/static/search-26245.png" width="29" height="29"></button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container mt-3">
+        <h5 class="text-center">
+            Did not find anything...? - Go to service page for all categories
+        </h5>
+    </div>
+
+    <img src="/static/b.jpg" class="d-block" width="1366px" height="412px" alt="b.jpg">
+
+{% endblock body %}

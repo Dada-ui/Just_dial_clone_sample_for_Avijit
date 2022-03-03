@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}search{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row mx-auto">
+            {% if products %}
+                <div class="container">
+                    <hr class="text-center mx-auto col-sm-3">
+                    <h3 class="text-center">Categories</h3>
+                    <hr class="text-center mx-auto col-sm-3">
+                </div>
+            {% else %}
+                <div class="container">
+                    <hr class="text-center mx-auto col-sm-3">
+                    <h3 class="text-center">Search result : None</h3>
+                    <hr class="text-center mx-auto col-sm-3">
+                </div>
+            {% endif %}
+            {% for product in products %}
+                <div class="card mx-auto mb-4" style="width: 15rem;">
+                    <img src="{{product.image.url}}" class="card-img-top pt-2" alt="...">
+                    <strong><p class="card-title">Role : {{product.role}}</p>   
+                        <p class="card-text">Name : {{product.name}}</p>
+                        <p class="card-text">Gender : {{product.gender}}</p>
+                        <p class="card-text">Email : {{product.email}}</p>
+                        <p class="card-text">Phone : {{product.phone}}</p>
+                        <p class="card-text">City : {{product.city}}</p>
+                        <p class="card-text">Description : {{product.description}}</p>
+                    </strong>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock body %}
